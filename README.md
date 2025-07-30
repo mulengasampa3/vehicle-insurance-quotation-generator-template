@@ -1,2 +1,3 @@
 # react-template
- the template to end all react templates
+1. Run npm i and then
+2. npm run dev
