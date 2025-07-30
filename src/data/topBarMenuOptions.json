@@ -1,0 +1,22 @@
+[
+    {
+        "title": "Home",
+        "icon": "bi-house",
+        "path": ""
+    },
+    {
+        "title": "Products",
+        "icon": " bi-cart",
+        "path": "insurance-packages"
+    },
+    {
+        "title": "profile",
+        "icon": "bi-person-fill-gear",
+        "path": "my-account"
+    },
+    {
+        "title": "My Vehicles",
+        "icon": "bi-car-front-fill",
+        "path": "my-vehicles"
+    }
+]

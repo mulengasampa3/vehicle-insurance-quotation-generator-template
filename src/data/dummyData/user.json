@@ -1,0 +1,44 @@
+[
+  {
+    "id": "u-001",
+    "fullName": "Jane Doe",
+    "email": "jane.doe@example.com",
+    "phoneNumber": "+260971234567",
+    "profileImage": "jane.jpg"
+  },
+  {
+    "id": "u-002",
+    "fullName": "Mulenga Sampa",
+    "email": "mulenga.sampa@example.com",
+    "phoneNumber": "+260977654321",
+    "profileImage": "mulenga.jpg"
+  },
+  {
+    "id": "u-003",
+    "fullName": "Chipo Zulu",
+    "email": "chipo.zulu@example.com",
+    "phoneNumber": "+260960000111",
+    "profileImage": "chipo.jpg"
+  },
+  {
+    "id": "u-004",
+    "fullName": "Mwansa Bwalya",
+    "email": "mwansa.bwalya@example.com",
+    "phoneNumber": "+260955667788",
+    "profileImage": "mwansa.jpg"
+  },
+  {
+    "id": "u-005",
+    "fullName": "Thabo Phiri",
+    "email": "thabo.phiri@example.com",
+    "phoneNumber": "+260973456789",
+    "profileImage": "thabo.jpg"
+  },
+  {
+    "id": "u-006",
+    "fullName": "Linda Mwewa",
+    "email": "linda.mwewa@example.com",
+    "phoneNumber": "+260971112233",
+    "profileImage": "linda.jpg"
+  }
+]

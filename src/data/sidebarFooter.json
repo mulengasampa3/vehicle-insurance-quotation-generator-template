@@ -1,0 +1,12 @@
+[
+    {
+        "title": "Account Settings",
+        "icon": "bi-gear-fill",
+        "path": "../dashboard-app/profile-settings"
+    },
+    {
+        "title": "Log Out",
+        "icon": "bi-box-arrow-right",
+        "path": "../auth/login"
+    }
+]

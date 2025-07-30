@@ -1,2 +1,2 @@
-# vehicle-insurance-quotation-generator-template
-UI Workflow of creating, ordering and issuing of quotation.
+# react-template
+ the template to end all react templates

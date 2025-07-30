@@ -1,0 +1,117 @@
+@import '/src/assets/styles/globalStyles/global.css';
+
+/*Company name styles go here*/
+/* Menu Option styles go here */
+.sidebar .menu-options {
+    width: 100%;
+    height: calc(100% - 200px);
+    overflow-y: auto;
+}
+
+.menu-options .menu-item,
+.sidebar-footer .menu-item {
+    padding: 0px 16px;
+    display: block;
+    transition: background-color .15s;
+    width: 100%;
+    align-items: center;
+    min-height: 50px;
+}
+
+.menu-item.plain {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.menu-item.plain i {
+    display: inline-block;
+    display: flex;
+    align-items: center;
+    min-width: 30px;
+    height: 30px;
+}
+
+.menu-item.plain span {
+    font-size: 15px;
+    text-wrap: nowrap;
+}
+
+.menu-options .menu-item:hover,
+.sidebar-footer .menu-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.menu-option-title {
+    display: flex;
+    font-size: 15px;
+    font-weight: 100;
+    justify-content: space-between;
+    cursor: pointer;
+    width: 100%;
+    height: 50px;
+}
+
+.menu-option-title .icon-title-pair {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-option-title .icon-title-pair i {
+    display: inline-block;
+    min-width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+}
+
+.icon-title-pair .value {
+    margin: 0 0 0 0;
+    cursor: pointer;
+}
+
+.menu-option-title .toggle-btn {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: transform .3s;
+}
+
+.menu-option-title i {
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+}
+
+.menu-item.open>.menu-option-title .toggle-btn {
+    transform: rotate(180deg);
+}
+
+.menu-item.open>.menu-option-content {
+    height: auto;
+}
+
+.menu-option-content {
+    padding-top: .25em;
+    height: 0;
+    overflow: hidden;
+}
+
+.sidebar hr {
+    width: 100%;
+    border: none;
+    border-top: 1px solid #696969eb;
+    margin: 0;
+}
+
+/*The Footer styles*/
+.sidebar .sidebar-footer {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
