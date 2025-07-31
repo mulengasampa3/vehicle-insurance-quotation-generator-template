@@ -61,7 +61,16 @@ export default function Dashboard({ pageName }: PageDetailsProps) {
                         </button>
                     ) : (
                         <div className="flex space-x-2">
-                            <button className="editable-btn text-white bg-green-500 rounded text-sm  px-4 py-2">
+                            <button
+                                onClick={() => {
+                                    // Handle save logic here
+                                    setUploadStatus('uploading');
+                                    setTimeout(() => {
+                                        setUploadStatus('success');
+                                        setIsEditing(false);
+                                    }, 2000); // Simulate upload delay
+                                }}
+                             className="editable-btn text-white bg-green-500 rounded text-sm  px-4 py-2">
                                 <i className="bi bi bi-floppy mr-1"></i>
                                 Save Details
                             </button>

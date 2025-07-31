@@ -42,12 +42,12 @@ export default function QuotationsList({ pageName }: PageDetailsProps) {
         const itemsPerPage = 10; // Number of items to show per pagex
     
     
-        const totalVehicles = vehicles.length;
+        const totalVehicles = quotationList.length;
         const totalPages = Math.ceil(totalVehicles / itemsPerPage);
     
         const indexOfLastVehicle = currentPage * itemsPerPage;
         const indexOfFirstVehicle = indexOfLastVehicle - itemsPerPage;
-        const currentVehicles = vehicles.slice(indexOfFirstVehicle, indexOfLastVehicle);
+        const currentVehicles = quotationList.slice(indexOfFirstVehicle, indexOfLastVehicle);
     
         const handleNextPage = () => {
             if (currentPage < totalPages) {
@@ -68,7 +68,7 @@ export default function QuotationsList({ pageName }: PageDetailsProps) {
                 // Simulate a slight delay to mimic network latency,
                 // so you can actually see the "Loading vehicles..." message.
                 setTimeout(() => {
-                    setVehicles(VehicleInventory); // Use the imported data
+                    setQuotationList(VehicleInventory); // Use the imported data
                     setLoading(false);
                 }, 3500); // 500ms delay
             } catch (e) {
@@ -241,7 +241,7 @@ export default function QuotationsList({ pageName }: PageDetailsProps) {
                                             <td colSpan={8} className="text-center py-4 text-black dark:text-white">No vehicles found.</td>
                                         </tr>
                                     ) : (
-                                        currentVehicles.map((car, i) => (
+                                        currentVehicles.map((car: any, i: any) => (
                                             <tr
                                                 key={i}
                                                 className="block md:table-row border-b md:border-none p-4 md:p-0 bg-white dark:bg-[#3d3d3d]"

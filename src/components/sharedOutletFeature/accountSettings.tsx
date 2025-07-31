@@ -91,7 +91,7 @@ const AccountSettings: React.FC = () => {
 
                         {/* Address */}
                         <div>
-                            <div className="flex justify-between items-center mb-2">
+                            <div className="flex justify-between items-center mb-2"> 
                                 <h5 className="font-medium text-gray-700 dark:text-white">Address</h5>
                                 <button className="text-62 px-4 rounded-md bg-dc hover:underline text-sm">
                                     ✎ Edit
