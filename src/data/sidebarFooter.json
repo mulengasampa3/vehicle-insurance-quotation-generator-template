@@ -2,7 +2,7 @@
     {
         "title": "Account Settings",
         "icon": "bi-gear-fill",
-        "path": "../dashboard-app/profile-settings"
+        "path": "profile-settings"
     },
     {
         "title": "Log Out",

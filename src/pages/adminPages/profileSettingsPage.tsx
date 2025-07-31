@@ -1,10 +1,11 @@
-// Vehicle Details.tsx
+// clientDashboardPage.tsx
 //==========React Specific Imports===========
 import { useNavigate } from "react-router-dom";
 
 //==============My Imports==================
 //1. Reusable Components
 import Breadcrumb from "../../components/molecules/breadcrumb";
+import AccountSettings from "../../components/sharedOutletFeature/accountSettings";
 //2. Custom Hooks
 
 //3. Types
@@ -15,7 +16,7 @@ interface PageDetailsProps {
     pageName: string;
 }
 
-export default function Dashboard({ pageName }: PageDetailsProps) {
+export default function AdminProfilePage({ pageName }: PageDetailsProps) {
     const breadcrumbItems = [
         { label: "Home", path: "/" },
         { label: pageName }, // Dynamic page label
@@ -27,7 +28,7 @@ export default function Dashboard({ pageName }: PageDetailsProps) {
     };
 
     return (
-        <div className="h-full">
+        <div className="h-full w-full">
             {/* Page Header (Breadcrumbs) */}
             <div className="w-full h-[60px] flex items-center sm:px-4 px-4">
                 <div className="flex items-center gap-2 w-full">
@@ -39,7 +40,7 @@ export default function Dashboard({ pageName }: PageDetailsProps) {
 
             {/* Page Content */}
             <div className="wrapper w-full h-[calc(100%_-_60px)] gap-x-2 flex flex-col md:flex-row items-center justify-center md:items-start p-1">
-                
+                <AccountSettings/>
             </div>
         </div>
     );

@@ -7,6 +7,7 @@ import VehicleInventoryPage from "./pages/adminPages/vehicleInventoryPage";
 import DashboardPage from "./pages/adminPages/dashboardPage";
 import VehicleDetailsPage from "./pages/adminPages/vehicleDetailsPage";
 import QuotationsListPage from "./pages/adminPages/quotationListPage";
+import AdminProfilePage from "./pages/adminPages/profileSettingsPage";
 
 {/*2. Client (External) Side Portal */}
 //a. Partial
@@ -41,6 +42,7 @@ const App: React.FC = () => {
                     <Route path="vehicle-inventory" element={<VehicleInventoryPage pageName= "Vehicle Inventory" />} />
                     <Route path="vehicle-details" element={<VehicleDetailsPage pageName= "Vehicle Details" />} />
                     <Route path="quotations" element={<QuotationsListPage pageName="Quotations"/>}/>
+                    <Route path="profile-settings" element={<AdminProfilePage pageName="Profile Settings"/>}/>
                 </Route>
 
                 {/*2. Client (External) Portal*/}
