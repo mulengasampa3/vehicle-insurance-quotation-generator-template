@@ -11,7 +11,7 @@ const AccountSettings: React.FC = () => {
     const [activeTab, setActiveTab] = useState('My Profile');
 
     return (
-        <div className="flex flex-col md:flex-row h-full border w-full bg-gray-100 rounded-lg overflow-hidden">
+        <div className="flex flex-col md:flex-row h-full w-full bg-gray-100 rounded-lg overflow-hidden">
             {/* Sidebar Navigation */}
             <aside className="w-full md:w-[240px] bg-white dark:bg-[#2a2a2a]">
                 <ul className="">

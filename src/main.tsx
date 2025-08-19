@@ -7,8 +7,6 @@ import '../src/assets/styles/layoutStyles/navbar.css';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-
       <App />
-   
   </StrictMode>
 );

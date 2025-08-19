@@ -47,7 +47,7 @@ const Toast: React.FC<ToastProps> = ({
         success: { border: "border-green-500", bgOuter: "bg-green-200", bgMiddle: "bg-green-400", textColor: "text-green-500", icon: "bx bx-check" },
         error: { border: "border-red-500", bgOuter: "bg-red-200", bgMiddle: "bg-red-400", textColor: "text-red-500", icon: "bx bx-x" },
         warning: { border: "border-orange-500", bgOuter: "bg-orange-200", bgMiddle: "bg-orange-400", textColor: "text-orange-500", icon: "bi bi-exclamation" },
-        notification: { border: "border-blue-500", bgOuter: "bg-blue-200", bgMiddle: "bg-white", textColor: "text-frontier-light-blue", icon: "bx bx-bell" },
+        notification: { border: "border-blue-500", bgOuter: "bg-blue-200", bgMiddle: "bg-white", textColor: "text-blue-400", icon: "bx bx-bell" },
         mail: { border: "border-green-500", bgOuter: "bg-green-200", bgMiddle: "bg-white", textColor: "text-green-500", icon: "bx bx-envelope" },
     };
 

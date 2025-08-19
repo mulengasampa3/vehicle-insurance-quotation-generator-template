@@ -8,10 +8,10 @@ import React, { useEffect, useRef, useState } from "react";
 import Breadcrumb from "../../components/molecules/breadcrumb";
 import Modal from "../../components/organisms/modal";
 import OffCanvas from "../../components/organisms/offcanvas";
-import { Vehicle } from "../../types/insurance.types";
+
 
 //2. Custom Hooks
-
+import { Vehicle } from "../../types/insurance.types";
 //3. Types
 
 //4. Stores and Api's
@@ -33,52 +33,52 @@ export default function QuotationsList({ pageName }: PageDetailsProps) {
     const goBack = () => navigate(-1);
 
     // Simulating an api response (states can st)
-        const [quotationList, setQuotationList] = useState<Vehicle[]>([]); // Specify Vehicle[] type
-        const [loading, setLoading] = useState(true);
-        const [error, setError] = useState<Error | null>(null); // Specify Error type
+    const [quotationList, setQuotationList] = useState<Vehicle[]>([]); // Specify Vehicle[] type
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<Error | null>(null); // Specify Error type
 
     // ----------------- Pagination Logic ---------------------
-        const [currentPage, setCurrentPage] = useState(1);
-        const itemsPerPage = 10; // Number of items to show per pagex
-    
-    
-        const totalVehicles = quotationList.length;
-        const totalPages = Math.ceil(totalVehicles / itemsPerPage);
-    
-        const indexOfLastVehicle = currentPage * itemsPerPage;
-        const indexOfFirstVehicle = indexOfLastVehicle - itemsPerPage;
-        const currentVehicles = quotationList.slice(indexOfFirstVehicle, indexOfLastVehicle);
-    
-        const handleNextPage = () => {
-            if (currentPage < totalPages) {
-                setCurrentPage(prevPage => prevPage + 1);
-            }
-        };
-    
-        const handlePrevPage = () => {
-            if (currentPage > 1) {
-                setCurrentPage(prevPage => prevPage - 1);
-            }
-        };
-        // -------------------End Pagination Logic -------------------------
-    
-        useEffect(() => {
-            // --- Directly use the imported JSON data ---
-            try {
-                // Simulate a slight delay to mimic network latency,
-                // so you can actually see the "Loading vehicles..." message.
-                setTimeout(() => {
-                    setQuotationList(VehicleInventory); // Use the imported data
-                    setLoading(false);
-                }, 3500); // 500ms delay
-            } catch (e) {
-                setError(e as Error); // Cast error to Error type
-                setLoading(true);
-            }
-        }, []);
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 10; // Number of items to show per pagex
+
+
+    const totalVehicles = quotationList.length;
+    const totalPages = Math.ceil(totalVehicles / itemsPerPage);
+
+    const indexOfLastVehicle = currentPage * itemsPerPage;
+    const indexOfFirstVehicle = indexOfLastVehicle - itemsPerPage;
+    const currentVehicles = quotationList.slice(indexOfFirstVehicle, indexOfLastVehicle);
+
+    const handleNextPage = () => {
+        if (currentPage < totalPages) {
+            setCurrentPage(prevPage => prevPage + 1);
+        }
+    };
+
+    const handlePrevPage = () => {
+        if (currentPage > 1) {
+            setCurrentPage(prevPage => prevPage - 1);
+        }
+    };
+    // -------------------End Pagination Logic -------------------------
+
+    useEffect(() => {
+        // --- Directly use the imported JSON data ---
+        try {
+            // Simulate a slight delay to mimic network latency,
+            // so you can actually see the "Loading vehicles..." message.
+            setTimeout(() => {
+                setQuotationList(VehicleInventory); // Use the imported data
+                setLoading(false);
+            }, 3500); // 500ms delay
+        } catch (e) {
+            setError(e as Error); // Cast error to Error type
+            setLoading(true);
+        }
+    }, []);
 
     if (loading) {
-        return <div className="text-center h-full flex items-center justify-center py-4 dark:text-white">Loading vehicles...</div>;
+        return <div className="text-center h-full flex items-center justify-center py-4 dark:text-white">Loading quotations...</div>;
     }
 
     if (error) {
@@ -151,25 +151,25 @@ export default function QuotationsList({ pageName }: PageDetailsProps) {
     /* ------------- Add Modal Logic Ends Here ------------------*/
 
     const [isFilterOffCanvasOpen, setIsFilterOffCanvasOpen] = useState(false);
-        const offCanvasRef = useRef<HTMLDivElement>(null);
-    
-        // Close when clicking outside the offcanvas
-        useEffect(() => {
-            const handleClickOutside = (event: MouseEvent) => {
-                if (
-                    isFilterOffCanvasOpen &&
-                    offCanvasRef.current &&
-                    !offCanvasRef.current.contains(event.target as Node)
-                ) {
-                    setIsFilterOffCanvasOpen(false);
-                }
-            };
-    
-            document.addEventListener("mousedown", handleClickOutside);
-            return () => {
-                document.removeEventListener("mousedown", handleClickOutside);
-            };
-        }, [isFilterOffCanvasOpen]);
+    const offCanvasRef = useRef<HTMLDivElement>(null);
+
+    // Close when clicking outside the offcanvas
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (
+                isFilterOffCanvasOpen &&
+                offCanvasRef.current &&
+                !offCanvasRef.current.contains(event.target as Node)
+            ) {
+                setIsFilterOffCanvasOpen(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [isFilterOffCanvasOpen]);
 
     return (
         <div className="h-full">
@@ -184,7 +184,7 @@ export default function QuotationsList({ pageName }: PageDetailsProps) {
             <div className="wrapper w-full h-[calc(100%_-_60px)] gap-x-2 flex flex-col md:flex-row items-center justify-center md:items-start p-1">
                 <div className="flex flex-col items-center justify-center w-full h-full">
                     <h2 className="text-2xl font-bold mb-4">Create New Quotation</h2>
-                    
+
                     {/* ===========DATATABLE COMPONENT=========== */}
                     <div className="table-card flex flex-col p-2 border h-full w-full max-w-6xl">
                         {/* 1. Table Filters */}
@@ -345,52 +345,57 @@ export default function QuotationsList({ pageName }: PageDetailsProps) {
                     animated="animate-bounceInDown"
                     size="fixed"
                 >
+                    // Inside your Modal component's content
                     <form className="space-y-4 px-4 py-2 h-full w-full flex flex-col items-center" onSubmit={handleSubmit}>
                         <span className="step-of-total w-full text-62 dark:text-[#cfcfcf] text-center text-[14px] leading-3">Step {currentStep + 1} of {totalSteps}</span>
                         <div className="w-3/4 bg-gray-200 rounded-full min-h-1 flex dark:bg-gray-700 mb-1">
                             <div className="bg-green-600 h-full rounded-full transition-all" style={{ width: `${((currentStep + 1) / totalSteps) * 100}%` }}></div>
                         </div>
                         <h3 className={sectionTitleClass}>{steps[currentStep].title}</h3>
-                        {currentStep === 0 && (
-                            <div className="overflow-auto max-h-full w-full">
+
+                        {/* Render all steps, but hide the non-current ones using CSS */}
+                        <div className="overflow-auto max-h-full w-full"> {/* This wrapper can be outside or inside, depending on your overall layout */}
+
+                            {/* Step 0: Vehicle Details */}
+                            <div style={{ display: currentStep === 0 ? 'block' : 'none' }}>
                                 <div className={grid2Cols}>
                                     <div>
                                         <label className={labelClass}>Make (Brand)</label>
-                                        <input type="text" placeholder="Enter vehicle make..." name="make" required className={inputClass} onChange={handleChange} />
+                                        <input type="text" placeholder="Enter vehicle make..." name="make" required className={inputClass} onChange={handleChange} value={formData.make || ''} />
                                     </div>
                                     <div>
                                         <label className={labelClass}>Model</label>
-                                        <input type="text" placeholder="Enter vehicle Model..." name="model" required className={inputClass} onChange={handleChange} />
+                                        <input type="text" placeholder="Enter vehicle Model..." name="model" required className={inputClass} onChange={handleChange} value={formData.model || ''} />
                                     </div>
                                     <div>
                                         <label className={labelClass}>Year</label>
-                                        <input type="text" placeholder="Enter vehicle Year..." name="year" required className={inputClass} onChange={handleChange} />
+                                        <input type="text" placeholder="Enter vehicle Year..." name="year" required className={inputClass} onChange={handleChange} value={formData.year || ''} />
                                     </div>
                                     <div>
                                         <label className={labelClass}>Registration Number</label>
-                                        <input type="text" placeholder="Enter Registration Number..." name="registrationNumber" required className={inputClass} onChange={handleChange} />
+                                        <input type="text" placeholder="Enter Registration Number..." name="registrationNumber" required className={inputClass} onChange={handleChange} value={formData.registrationNumber || ''} />
                                     </div>
                                     <div>
                                         <label className={labelClass}>VIN (optional)</label>
-                                        <input type="text" placeholder="Enter Vehicle Identification Number..." name="vin" className={inputClass} onChange={handleChange} />
+                                        <input type="text" placeholder="Enter Vehicle Identification Number..." name="vin" className={inputClass} onChange={handleChange} value={formData.vin || ''} />
                                     </div>
                                     <div>
                                         <label className={labelClass}>Estimated Car Value/Sum Insured</label>
-                                        <input type="number" placeholder="Enter Esimated Car Value or Sum Insured..." name="estimatedCarValue" required className={inputClass} onChange={handleChange} />
+                                        <input type="number" placeholder="Enter Esimated Car Value or Sum Insured..." name="estimatedCarValue" required className={inputClass} onChange={handleChange} value={formData.estimatedCarValue || ''} />
                                     </div>
                                     <div>
                                         <label className={labelClass}>Modifications</label>
-                                        <input type="text" name="modifications" placeholder="Enter Modifications Details..." required className={inputClass} onChange={handleChange} />
+                                        <input type="text" name="modifications" placeholder="Enter Modifications Details..." required className={inputClass} onChange={handleChange} value={formData.modifications || ''} />
                                     </div>
                                     <div>
                                         <label className={labelClass}>Milege</label>
-                                        <input type="number" name="milege" placeholder="Enter Vehicle current milege..." required className={inputClass} onChange={handleChange} />
+                                        <input type="number" name="milege" placeholder="Enter Vehicle current milege..." required className={inputClass} onChange={handleChange} value={formData.milege || ''} />
                                     </div>
                                 </div>
                                 <div className={grid2Cols}>
                                     <div>
                                         <label className={labelClass}>Fuel Type</label>
-                                        <select name="fuelType" required className={inputClass} onChange={handleChange}>
+                                        <select name="fuelType" required className={inputClass} onChange={handleChange} value={formData.fuelType || ''}>
                                             <option className='text-sm dark:text-white' value="" disabled>Select Fuel Type</option>
                                             <option className='text-sm dark:text-white' value="Petrol">Petrol</option>
                                             <option className='text-sm dark:text-white' value="Diesel">Diesel</option>
@@ -398,19 +403,18 @@ export default function QuotationsList({ pageName }: PageDetailsProps) {
                                             <option className='text-sm dark:text-white' value="Hybrid">Hybrid</option>
                                         </select>
                                     </div>
-
                                     <div>
                                         <label className={labelClass}>Transmission</label>
-                                        <select name="fuelType" required className={inputClass} onChange={handleChange}>
-                                            <option className='text-sm dark:text-white' value="" disabled>Select Fuel Type</option>
-                                            <option className='text-sm dark:text-white' value="Petrol">Automatic</option>
-                                            <option className='text-sm dark:text-white' value="Diesel">Manual</option>
-                                            <option className='text-sm dark:text-white' value="Electric">CVT</option>
+                                        <select name="transmission" required className={inputClass} onChange={handleChange} value={formData.transmission || ''}>
+                                            <option className='text-sm dark:text-white' value="" disabled>Select Transmission Type</option>
+                                            <option className='text-sm dark:text-white' value="Automatic">Automatic</option>
+                                            <option className='text-sm dark:text-white' value="Manual">Manual</option>
+                                            <option className='text-sm dark:text-white' value="CVT">CVT</option>
                                         </select>
                                     </div>
                                     <div>
                                         <label className={labelClass}>Car Quality Status</label>
-                                        <select name="carQualityStatus" required className={inputClass} onChange={handleChange}>
+                                        <select name="carQualityStatus" required className={inputClass} onChange={handleChange} value={formData.carQualityStatus || ''}>
                                             <option className='text-sm dark:text-white' value="" disabled>Select a quality</option>
                                             <option className='text-sm dark:text-white' value="new">New</option>
                                             <option className='text-sm dark:text-white' value="cpo">Certified Pre-Owned (CPO)</option>
@@ -423,42 +427,45 @@ export default function QuotationsList({ pageName }: PageDetailsProps) {
                                     </div>
                                 </div>
                             </div>
-                        )}
 
-                        {currentStep === 1 && (
-                            <div className="overflow-auto max-h-full w-full">
+                            {/* Step 1: Buyer Details */}
+                            {/* Note: Your currentStep === 1 section only has 'Engine Size'.
+                                This might be intended for 'Vehicle Details' or perhaps you missed
+                                adding actual buyer details fields here.
+                                I'm assuming it should be part of buyer details for now, but verify. */}
+                            <div style={{ display: currentStep === 1 ? 'block' : 'none' }}>
                                 <div className={grid3Cols}>
-
                                     <div>
                                         <label className={labelClass}>Engine Size (L)</label>
-                                        <input type="text" name="engineSize" required className={inputClass} onChange={handleChange} />
+                                        <input type="text" name="engineSize" required className={inputClass} onChange={handleChange} value={formData.engineSize || ''} />
                                     </div>
+                                    {/* Add more buyer details fields here */}
                                 </div>
                             </div>
-                        )}
 
-                        {currentStep === 2 && (
-                            <div className="overflow-auto max-h-full w-full">
+                            {/* Step 2: Insurance Details */}
+                            <div style={{ display: currentStep === 2 ? 'block' : 'none' }}>
                                 <div className={grid2Cols}>
                                     <div>
                                         <label className={labelClass}>Owner Name</label>
-                                        <input type="text" name="ownerName" required className={inputClass} onChange={handleChange} />
+                                        <input type="text" name="ownerName" required className={inputClass} onChange={handleChange} value={formData.ownerName || ''} />
                                     </div>
                                     <div>
                                         <label className={labelClass}>Registration Date</label>
-                                        <input type="date" name="registrationDate" required className={inputClass} onChange={handleChange} />
+                                        <input type="date" name="registrationDate" required className={inputClass} onChange={handleChange} value={formData.registrationDate || ''} />
                                     </div>
+                                    {/* Add more insurance details fields here */}
                                 </div>
                             </div>
 
-                        )}
-
-                        {currentStep === 3 && (
-                            <div className="p-2 border rounded w-full">
-                                <h4 className="font-semibold">Review</h4>
-                                <pre className="text-sm text-gray-700 dark:text-white">{JSON.stringify(formData, null, 2)}</pre>
+                            {/* Step 3: Review & Submit */}
+                            <div style={{ display: currentStep === 3 ? 'block' : 'none' }}>
+                                <div className="p-2 border rounded w-full">
+                                    <h4 className="font-semibold">Review</h4>
+                                    <pre className="text-sm text-gray-700 dark:text-white">{JSON.stringify(formData, null, 2)}</pre>
+                                </div>
                             </div>
-                        )}
+                        </div> {/* End of wrapper div for steps */}
 
                         <div className="flex justify-between space-x-2">
                             <button
