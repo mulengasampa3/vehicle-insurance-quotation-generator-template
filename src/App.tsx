@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 //a. Partial
 import AdminPortalLayout from "./components/partials/adminPortalPartials/adminPortalLayout";
 //b. Page Outlets
-import VehicleInventoryPage from "./pages/adminPages/vehicleInventoryPage";
+// import VehicleInventoryPage from "./pages/adminPages/vehicleInventoryPage";
 import DashboardPage from "./pages/adminPages/dashboardPage";
 import VehicleDetailsPage from "./pages/adminPages/vehicleDetailsPage";
 import QuotationsListPage from "./pages/adminPages/quotationListPage";
@@ -39,7 +39,7 @@ const App: React.FC = () => {
                 {/*1. Admin (Internal) Portal */}
                 <Route path="dashboard-app/" element={<AdminPortalLayout />}>
                     <Route index element={<DashboardPage pageName="Dashboard" />} />
-                    <Route path="vehicle-inventory" element={<VehicleInventoryPage pageName= "Vehicle Inventory" />} />
+                    {/* <Route path="vehicle-inventory" element={<VehicleInventoryPage pageName= "Vehicle Inventory" />} /> */}
                     <Route path="vehicle-details" element={<VehicleDetailsPage pageName= "Vehicle Details" />} />
                     <Route path="quotations" element={<QuotationsListPage pageName="Quotations"/>}/>
                     <Route path="profile-settings" element={<AdminProfilePage pageName="Profile Settings"/>}/>
