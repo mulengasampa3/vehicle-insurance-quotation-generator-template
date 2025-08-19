@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: ['./src/**/*.{js,jsx,ts,tsx}'],
+    content: ['./src/**/*.{js,jsx,ts,tsx}', './*.html'], // Added HTML file for content
     theme: {
         extend: {
             colors: {
@@ -18,10 +18,25 @@ module.exports = {
             },
 
             backdropBlur: {
-                'custom': '40px',  // Adds a custom blur of 40px
+                'custom': '40px',
             },
 
             keyframes: {
+                spin: {
+                    '0%': { transform: 'rotate(0deg)' },
+                    '100%': { transform: 'rotate(360deg)' },
+                },
+                'spin-reverse': {
+                    '0%': { transform: 'rotate(0deg)' },
+                    '100%': { transform: 'rotate(-360deg)' },
+                },
+                leftToRight: {
+                    '0%': { transform: 'rotate(0deg)' },
+                    '25%': { transform: 'rotate(-22.5deg)' },
+                    '50%': { transform: 'rotate(0deg)' },
+                    '75%': { transform: 'rotate(22.5deg)' },
+                    '100%': { transform: 'rotate(0deg)' },
+                },
                 bounceIn: {
                     '0%': { transform: 'scale(0.3); opacity: 0;' },
                     '50%': { transform: 'scale(1.3); opacity: 1;' },
@@ -67,6 +82,9 @@ module.exports = {
             },
 
             animation: {
+                'spin-slow': 'spin 2s linear infinite',
+                'spin-reverse': 'spin-reverse 2s linear infinite',
+                'leftToRight': 'leftToRight 1s ease-in-out infinite',
                 bounceIn: 'bounceIn 0.4s ease-in',
                 jelloEffect: 'jelloEffect 1s ease-in-out',
                 rotascaling: 'rotascaling 2s linear infinite',
@@ -75,5 +93,5 @@ module.exports = {
         },
     },
     plugins: [],
-    darkMode: 'class', // Enable dark mode support
+    darkMode: 'class',
 }

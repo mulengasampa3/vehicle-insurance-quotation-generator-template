@@ -24,3 +24,8 @@ export type OffCanvasTypes = {
     slideTransitionDuration?: string;
     children?: ReactNode;
 }
+
+export type LoaderProps = {
+    bgColor?: string; // Background color for the loader container (e.g., "bg-gray-100")
+    additionalClasses?: string; // Additional Tailwind classes
+};

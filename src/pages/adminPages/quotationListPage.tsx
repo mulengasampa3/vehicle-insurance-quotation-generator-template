@@ -8,14 +8,15 @@ import React, { useEffect, useRef, useState } from "react";
 import Breadcrumb from "../../components/molecules/breadcrumb";
 import Modal from "../../components/organisms/modal";
 import OffCanvas from "../../components/organisms/offcanvas";
-
+import Preloader from "../../components/organisms/preloader";
 
 //2. Custom Hooks
-import { Vehicle } from "../../types/insurance.types";
+
 //3. Types
+import { Quotation } from "../../types/insurance.types";
 
 //4. Stores and Api's
-import VehicleInventory from '../../data/dummyData/vehicleInventory.json' //Simulates an API response
+import QuotationList from '../../data/dummyData/quotationList.json'; // Simulates an API response for quotations
 
 //5. Media and Assets
 
@@ -33,25 +34,23 @@ export default function QuotationsList({ pageName }: PageDetailsProps) {
     const goBack = () => navigate(-1);
 
     // Simulating an api response (states can st)
-    const [quotationList, setQuotationList] = useState<Vehicle[]>([]); // Specify Vehicle[] type
+    const [quotationList, setQuotationList] = useState<Quotation[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<Error | null>(null); // Specify Error type
 
-    // ----------------- Pagination Logic ---------------------
+    // ----------------- Pagination useStates ---------------------
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 10; // Number of items to show per pagex
+    const totalQuotations = quotationList.length;
 
-
-    const totalVehicles = quotationList.length;
-    const totalPages = Math.ceil(totalVehicles / itemsPerPage);
-    
-    const indexOfLastVehicle = currentPage * itemsPerPage;
-    const indexOfFirstVehicle = indexOfLastVehicle - itemsPerPage;
-    const currentVehicles = quotationList.slice(indexOfFirstVehicle, indexOfLastVehicle);
+    const totalPages = Math.ceil(totalQuotations / itemsPerPage);
+    const indexOfLastQuotation = currentPage * itemsPerPage;
+    const indexOfFirstQuotation = indexOfLastQuotation - itemsPerPage;
+    const currentQuotations = quotationList.slice(indexOfFirstQuotation, indexOfLastQuotation);
 
     const handleNextPage = () => currentPage < totalPages && setCurrentPage(prev => prev + 1);
     const handlePrevPage = () => currentPage > 1 && setCurrentPage(prev => prev - 1);
-    // -------------------End Pagination Logic -------------------------
+    // -----------------------------------------------------------
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -63,6 +62,7 @@ export default function QuotationsList({ pageName }: PageDetailsProps) {
         console.log("Final Data:", formData);
     };
 
+    //-----------------OffCanvas useStates-------------------
     const [isFilterOffCanvasOpen, setIsFilterOffCanvasOpen] = useState(false);
     const offCanvasRef = useRef<HTMLDivElement>(null);
 
@@ -94,11 +94,12 @@ export default function QuotationsList({ pageName }: PageDetailsProps) {
     const grid3Cols = "grid grid-cols-1 sm:grid-cols-3 gap-4 border-2 mb-2 p-2 rounded-md";
     /* ------------- Add Modal Logic Ends Here ------------------*/
 
+    // ------------------Now fetching the data from the simulated API response------------------
     // In your useEffect
     useEffect(() => {
         try {
             setTimeout(() => {
-                setQuotationList(VehicleInventory);
+                setQuotationList(QuotationList as Quotation[]);
                 setLoading(false);
             }, 3500);
         } catch (e) {
@@ -107,7 +108,7 @@ export default function QuotationsList({ pageName }: PageDetailsProps) {
         }
     }, []);
 
-     // Close when clicking outside the offcanvas
+    // Close when clicking outside the offcanvas
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
             if (
@@ -126,33 +127,31 @@ export default function QuotationsList({ pageName }: PageDetailsProps) {
     }, [isFilterOffCanvasOpen]);
 
 
-    if (loading) return <div className="text-center h-full flex items-center justify-center py-4 dark:text-white">Loading quotations...</div>;
-    if (error) return <div className="text-center h-full flex items-center justify-center py-4 dark:text-white">Error: {error.message}</div>;
+    if (loading) {
+        return (
+            <Preloader />
+        );
+    }
 
-    // Helper function to format quality status
-    const formatQualityStatus = (status: string) => {
-        return status.replace(/-/g, ' ').replace(/\b\w/g, s => s.toUpperCase());
-    };
+    if (error) {
+        return (
+            <div className="text-center h-full flex text-sm items-center justify-center py-4 dark:text-white">Error: {error.message}</div>
+        );
+    }
 
     // Helper function to determine badge color
     const getBadgeColorClass = (status: string) => {
         switch (status) {
-            case 'new':
+            case 'pending':
                 return 'bg-blue-200 dark:bg-blue-700 text-blue-600 dark:text-blue-300';
-            case 'cpo':
-                return 'bg-purple-200 dark:bg-purple-700 text-purple-600 dark:text-purple-300';
-            case 'premium-used':
-                return 'bg-yellow-200 dark:bg-yellow-700 text-yellow-600 dark:text-yellow-300';
-            case 'good-condition':
+            case 'accepted':
                 return 'bg-green-200 dark:bg-green-700 text-green-600 dark:text-green-300';
-            case 'fair-condition':
-                return 'bg-orange-200 dark:bg-orange-700 text-orange-600 dark:text-orange-300';
-            case 'poor-condition':
+            case 'rejected':
                 return 'bg-red-200 dark:bg-red-700 text-red-600 dark:text-red-300';
-            case 'salvage-written-off':
+            case 'expired':
                 return 'bg-gray-400 dark:bg-gray-600 text-gray-800 dark:text-gray-200';
             default:
-                return 'bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300';
+                return 'bg-gray-200 text-gray-800';
         }
     };
 
@@ -168,8 +167,6 @@ export default function QuotationsList({ pageName }: PageDetailsProps) {
 
             <div className="wrapper w-full h-[calc(100%_-_60px)] gap-x-2 flex flex-col md:flex-row items-center justify-center md:items-start p-1">
                 <div className="flex flex-col items-center justify-center w-full h-full">
-                    <h2 className="text-2xl font-bold mb-4">Create New Quotation</h2>
-
                     {/* ===========DATATABLE COMPONENT=========== */}
                     <div className="table-card flex flex-col p-2 border h-full w-full max-w-6xl">
                         {/* 1. Table Filters */}
@@ -210,77 +207,71 @@ export default function QuotationsList({ pageName }: PageDetailsProps) {
                             <table className="w-full text-sm text-left border dark:border-gray-600">
                                 <thead className="hidden md:table-header-group">
                                     <tr className="bg-gray-100 dark:text-white text-62 dark:bg-[#4d4d4d]">
+                                        <th className="px-4 py-2">Quotation ID</th>
+                                        <th className="px-4 py-2">Client Name</th>
                                         <th className="px-4 py-2">Vehicle</th>
-                                        <th className="px-4 py-2">Year</th>
-                                        <th className="px-4 py-2">Mileage (Km)</th>
-                                        <th className="px-4 py-2">VIN</th>
-                                        <th className="px-4 py-2">Car Quality Status</th>
-                                        <th className="px-4 py-2">Body type</th>
-                                        <th className="px-4 py-2">Transmission</th>
+                                        <th className="px-4 py-2">Quoted Amount</th>
+                                        <th className="px-4 py-2">Status</th>
+                                        <th className="px-4 py-2">Expiry Date</th>
                                         <th className="px-4 py-2">Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody className="block md:table-row-group">
-                                    {currentVehicles.length === 0 ? (
+                                    {currentQuotations.length === 0 ? (
                                         <tr className="block md:table-row p-4 md:p-0 bg-white dark:bg-[#3d3d3d]">
                                             <td colSpan={8} className="text-center py-4 text-black dark:text-white">No vehicles found.</td>
                                         </tr>
                                     ) : (
-                                        currentVehicles.map((car: any, i: any) => (
+                                        currentQuotations.map((quotation, i) => (
                                             <tr
                                                 key={i}
                                                 className="block md:table-row border-b md:border-none p-4 md:p-0 bg-white dark:bg-[#3d3d3d]"
                                             >
+                                                {/* Correctly accessing the nested data for the table cells */}
+                                                <td
+                                                    data-label="Quotation ID"
+                                                    className="block md:table-cell border-b px-4 md:py-3 py-2 text-black dark:text-white before:font-semibold before:content-['Quotation_ID:'] md:before:content-none"
+                                                >
+                                                    <span className="md:mx-0 mx-1">{quotation.quotationId}</span>
+                                                </td>
+                                                <td
+                                                    data-label="Client Name"
+                                                    className="block md:table-cell border-b px-4 md:py-3 py-2 text-black dark:text-white before:font-semibold before:content-['Client_Name:'] md:before:content-none"
+                                                >
+                                                    <span className="md:mx-0 mx-1">{quotation.customerName}</span>
+                                                </td>
                                                 <td
                                                     data-label="Vehicle"
                                                     className="block md:table-cell border-b px-4 md:py-3 py-2 text-black dark:text-white before:font-semibold before:content-['Vehicle:'] md:before:content-none"
                                                 >
-                                                    <span className="md:mx-0 mx-1">{car.make} {car.model}</span>
+                                                    <span className="md:mx-0 mx-1">{quotation.vehicleDetails.make} {quotation.vehicleDetails.model} ({quotation.vehicleDetails.year})</span>
                                                 </td>
                                                 <td
-                                                    data-label="Year"
-                                                    className="block md:table-cell border-b px-4 md:py-3 py-2 text-black dark:text-white before:font-semibold before:content-['Year:'] md:before:content-none"
+                                                    data-label="Quoted Amount"
+                                                    className="block md:table-cell border-b px-4 md:py-3 py-2 text-black dark:text-white before:font-semibold before:content-['Quoted_Amount:'] md:before:content-none"
                                                 >
-                                                    <span className="md:mx-0 mx-1">{car.year}</span>
-                                                </td>
-                                                <td
-                                                    data-label="Mileage"
-                                                    className="block md:table-cell border-b px-4 md:py-3 py-2 text-black dark:text-white before:font-semibold before:content-['Mileage(Km):'] md:before:content-none"
-                                                >
-                                                    <span className="md:mx-0 mx-1">{car.mileage.toLocaleString()} km</span>
-                                                </td>
-                                                <td
-                                                    data-label="VIN"
-                                                    className="block md:table-cell border-b px-4 md:py-3 py-2 text-black dark:text-white before:font-semibold before:content-['VIN:'] md:before:content-none"
-                                                >
-                                                    <span className="md:mx-0 mx-1">{car.vin}</span>
+                                                    <span className="md:mx-0 mx-1">{quotation.quotedPrice.currency} {quotation.quotedPrice.totalAmount.toFixed(2)}</span>
                                                 </td>
                                                 <td
                                                     data-label="Status"
                                                     className="block md:table-cell border-b px-4 md:py-3 py-2 text-black dark:text-white before:font-semibold before:content-['Status:'] md:before:content-none"
                                                 >
-                                                    <span className={`inline-flex px-2 py-0.5 text-xs font-medium rounded-full ${getBadgeColorClass(car.carQualityStatus)}`}>
-                                                        {formatQualityStatus(car.carQualityStatus)}
+                                                    <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getBadgeColorClass(quotation.status)}`}>
+                                                        {quotation.status}
                                                     </span>
                                                 </td>
                                                 <td
-                                                    data-label="Body Type"
-                                                    className="block md:table-cell border-b px-4 md:py-3 py-2 text-black dark:text-white before:font-semibold before:content-['BodyType:'] md:before:content-none"
+                                                    data-label="Expiry Date"
+                                                    className="block md:table-cell border-b px-4 md:py-3 py-2 text-black dark:text-white before:font-semibold before:content-['Expiry_Date:'] md:before:content-none"
                                                 >
-                                                    <span className="md:mx-0 mx-1">{car.carBodyType.charAt(0).toUpperCase() + car.carBodyType.slice(1)}</span>
-                                                </td>
-                                                <td
-                                                    data-label="Transmission"
-                                                    className="block md:table-cell border-b px-4 md:py-3 py-2 text-black dark:text-white before:font-semibold before:content-['Transmission:'] md:before:content-none"
-                                                >
-                                                    <span className="md:mx-0 mx-1">{car.transmission}</span>
+                                                    <span className="md:mx-0 mx-1">{quotation.expiryDate}</span>
                                                 </td>
                                                 <td
                                                     data-label="Actions"
                                                     className="block md:table-cell border-b px-4 md:py-3 py-2 before:font-semibold before:content-['Actions:'] md:before:content-none"
                                                 >
                                                     <div className="flex gap-2">
-                                                        <Link to={`/vehicle-details/${car.id}`} className="text-white bg-blue-500 px-3 py-1 text-xs rounded">View</Link>
+                                                        <Link to={`/quotation-details/${quotation.quotationId}`} className="text-white bg-blue-500 px-3 py-1 text-xs rounded">View</Link>
                                                         <button className="text-white bg-red-500 px-3 py-1 text-xs rounded">Delete</button>
                                                     </div>
                                                 </td>
@@ -296,10 +287,10 @@ export default function QuotationsList({ pageName }: PageDetailsProps) {
                             <div className="total-records flex md:text-sm text-[12px] dark:text-white text-62 text-grey-700">
                                 <span className="hidden md:block mr-1 dark:text-white text-62">Showing</span>
                                 {/* Dynamically show number of items on current page */}
-                                <span className="font-extrabold mr-1 "> {currentVehicles.length}</span>
+                                <span className="font-extrabold mr-1 "> {currentQuotations.length}</span>
                                 of
                                 {/* Dynamically show total entries */}
-                                <span className="font-extrabold mx-1 dark:text-white text-62">{totalVehicles}</span> entries
+                                <span className="font-extrabold mx-1 dark:text-white text-62">{totalQuotations}</span> entries
                             </div>
                             <div className="page flex dark:text-white text-62">
                                 <button

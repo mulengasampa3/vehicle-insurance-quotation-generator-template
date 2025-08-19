@@ -1,0 +1,1137 @@
+[
+    {
+        "quotationId": "Q-001",
+        "customerId": "u-002",
+        "customerName": "Mulenga Sampa",
+        "customerEmail": "mulenga.sampa@example.com",
+        "vehicleId": "v-001",
+        "vehicleDetails": {
+            "make": "Toyota",
+            "model": "Belta",
+            "year": 2010,
+            "plateNumber": "ABC 123 ZM",
+            "vin": "1HM12321256432136",
+            "bodyType": "Sedan"
+        },
+        "policyDetails": {
+            "coverageType": "Comprehensive",
+            "startDate": "2025-01-01",
+            "endDate": "2025-12-31",
+            "durationMonths": 12
+        },
+        "quotedPrice": {
+            "currency": "ZMW",
+            "amount": 7500.00,
+            "breakdown": {
+                "basePremium": 6000.00,
+                "discounts": {
+                    "noClaimBonus": 500.00,
+                    "multiVehicleDiscount": 0.00
+                },
+                "surcharges": {
+                    "vehicleAgeSurcharge": 250.00,
+                    "engineSizeSurcharge": 100.00,
+                    "customizationSurcharge": 0.00
+                },
+                "applicableTaxes": 1650.00
+            },
+            "totalAmount": 7500.00
+        },
+        "paymentOptions": [
+            {
+                "option": "Full Payment",
+                "price": 7500.00,
+                "discount": "5%"
+            },
+            {
+                "option": "Quarterly Payments",
+                "price": 1950.00,
+                "installments": 4
+            }
+        ],
+        "issuingAgent": {
+            "agentId": "A-010",
+            "agentName": "Chanda Musonda"
+        },
+        "quotationDate": "2024-12-20",
+        "expiryDate": "2025-01-19",
+        "status": "pending"
+    },
+    {
+        "quotationId": "Q-002",
+        "customerId": "u-003",
+        "customerName": "Kopano Zulu",
+        "customerEmail": "kopano.zulu@example.com",
+        "vehicleId": "v-002",
+        "vehicleDetails": {
+            "make": "Ford",
+            "model": "Ranger",
+            "year": 2022,
+            "plateNumber": "XYZ 456 ZM",
+            "vin": "5NM98765432109876",
+            "bodyType": "Pickup"
+        },
+        "policyDetails": {
+            "coverageType": "Third Party",
+            "startDate": "2025-02-15",
+            "endDate": "2026-02-14",
+            "durationMonths": 12
+        },
+        "quotedPrice": {
+            "currency": "ZMW",
+            "amount": 3500.00,
+            "breakdown": {
+                "basePremium": 3000.00,
+                "discounts": {
+                    "noClaimBonus": 0.00,
+                    "multiVehicleDiscount": 200.00
+                },
+                "surcharges": {
+                    "vehicleAgeSurcharge": 0.00,
+                    "engineSizeSurcharge": 150.00,
+                    "customizationSurcharge": 0.00
+                },
+                "applicableTaxes": 550.00
+            },
+            "totalAmount": 3500.00
+        },
+        "paymentOptions": [
+            {
+                "option": "Full Payment",
+                "price": 3500.00,
+                "discount": "2%"
+            },
+            {
+                "option": "Monthly Payments",
+                "price": 310.00,
+                "installments": 12
+            }
+        ],
+        "issuingAgent": {
+            "agentId": "A-015",
+            "agentName": "Mwape Banda"
+        },
+        "quotationDate": "2025-01-30",
+        "expiryDate": "2025-02-28",
+        "status": "active"
+    },
+    {
+        "quotationId": "Q-003",
+        "customerId": "u-004",
+        "customerName": "Thabo Nkhoma",
+        "customerEmail": "thabo.nkhoma@example.com",
+        "vehicleId": "v-003",
+        "vehicleDetails": {
+            "make": "Nissan",
+            "model": "March",
+            "year": 2015,
+            "plateNumber": "PQR 789 ZM",
+            "vin": "3HN45678912345678",
+            "bodyType": "Hatchback"
+        },
+        "policyDetails": {
+            "coverageType": "Comprehensive",
+            "startDate": "2025-03-01",
+            "endDate": "2026-02-28",
+            "durationMonths": 12
+        },
+        "quotedPrice": {
+            "currency": "ZMW",
+            "amount": 6200.00,
+            "breakdown": {
+                "basePremium": 5000.00,
+                "discounts": {
+                    "noClaimBonus": 300.00,
+                    "multiVehicleDiscount": 0.00
+                },
+                "surcharges": {
+                    "vehicleAgeSurcharge": 100.00,
+                    "engineSizeSurcharge": 50.00,
+                    "customizationSurcharge": 0.00
+                },
+                "applicableTaxes": 1350.00
+            },
+            "totalAmount": 6200.00
+        },
+        "paymentOptions": [
+            {
+                "option": "Full Payment",
+                "price": 6200.00,
+                "discount": "4%"
+            }
+        ],
+        "issuingAgent": {
+            "agentId": "A-010",
+            "agentName": "Chanda Musonda"
+        },
+        "quotationDate": "2025-02-15",
+        "expiryDate": "2025-03-14",
+        "status": "pending"
+    },
+    {
+        "quotationId": "Q-004",
+        "customerId": "u-005",
+        "customerName": "Luyando Mwale",
+        "customerEmail": "luyando.mwale@example.com",
+        "vehicleId": "v-004",
+        "vehicleDetails": {
+            "make": "Mercedes-Benz",
+            "model": "C-Class",
+            "year": 2018,
+            "plateNumber": "LML 345 ZM",
+            "vin": "8HM78901234567890",
+            "bodyType": "Sedan"
+        },
+        "policyDetails": {
+            "coverageType": "Comprehensive",
+            "startDate": "2025-04-01",
+            "endDate": "2026-03-31",
+            "durationMonths": 12
+        },
+        "quotedPrice": {
+            "currency": "ZMW",
+            "amount": 9500.00,
+            "breakdown": {
+                "basePremium": 8000.00,
+                "discounts": {
+                    "noClaimBonus": 500.00,
+                    "multiVehicleDiscount": 0.00
+                },
+                "surcharges": {
+                    "vehicleAgeSurcharge": 200.00,
+                    "engineSizeSurcharge": 300.00,
+                    "customizationSurcharge": 0.00
+                },
+                "applicableTaxes": 1500.00
+            },
+            "totalAmount": 9500.00
+        },
+        "paymentOptions": [
+            {
+                "option": "Full Payment",
+                "price": 9500.00,
+                "discount": "5%"
+            },
+            {
+                "option": "Quarterly Payments",
+                "price": 2470.00,
+                "installments": 4
+            }
+        ],
+        "issuingAgent": {
+            "agentId": "A-012",
+            "agentName": "Twalumba Phiri"
+        },
+        "quotationDate": "2025-03-10",
+        "expiryDate": "2025-04-09",
+        "status": "pending"
+    },
+    {
+        "quotationId": "Q-005",
+        "customerId": "u-006",
+        "customerName": "Mwandama Chola",
+        "customerEmail": "mwandama.chola@example.com",
+        "vehicleId": "v-005",
+        "vehicleDetails": {
+            "make": "Isuzu",
+            "model": "D-Max",
+            "year": 2020,
+            "plateNumber": "MCH 987 ZM",
+            "vin": "2LM45612398745612",
+            "bodyType": "Pickup"
+        },
+        "policyDetails": {
+            "coverageType": "Third Party",
+            "startDate": "2025-04-20",
+            "endDate": "2026-04-19",
+            "durationMonths": 12
+        },
+        "quotedPrice": {
+            "currency": "ZMW",
+            "amount": 4200.00,
+            "breakdown": {
+                "basePremium": 3500.00,
+                "discounts": {
+                    "noClaimBonus": 0.00,
+                    "multiVehicleDiscount": 0.00
+                },
+                "surcharges": {
+                    "vehicleAgeSurcharge": 0.00,
+                    "engineSizeSurcharge": 200.00,
+                    "customizationSurcharge": 0.00
+                },
+                "applicableTaxes": 500.00
+            },
+            "totalAmount": 4200.00
+        },
+        "paymentOptions": [
+            {
+                "option": "Full Payment",
+                "price": 4200.00,
+                "discount": "2%"
+            },
+            {
+                "option": "Monthly Payments",
+                "price": 380.00,
+                "installments": 12
+            }
+        ],
+        "issuingAgent": {
+            "agentId": "A-015",
+            "agentName": "Mwape Banda"
+        },
+        "quotationDate": "2025-04-05",
+        "expiryDate": "2025-05-04",
+        "status": "pending"
+    },
+    {
+        "quotationId": "Q-006",
+        "customerId": "u-007",
+        "customerName": "Nawa Tembo",
+        "customerEmail": "nawa.tembo@example.com",
+        "vehicleId": "v-006",
+        "vehicleDetails": {
+            "make": "Honda",
+            "model": "Fit",
+            "year": 2012,
+            "plateNumber": "NTM 111 ZM",
+            "vin": "3HG23456789012345",
+            "bodyType": "Hatchback"
+        },
+        "policyDetails": {
+            "coverageType": "Third Party",
+            "startDate": "2025-05-01",
+            "endDate": "2026-04-30",
+            "durationMonths": 12
+        },
+        "quotedPrice": {
+            "currency": "ZMW",
+            "amount": 2800.00,
+            "breakdown": {
+                "basePremium": 2400.00,
+                "discounts": {
+                    "noClaimBonus": 0.00,
+                    "multiVehicleDiscount": 0.00
+                },
+                "surcharges": {
+                    "vehicleAgeSurcharge": 100.00,
+                    "engineSizeSurcharge": 50.00,
+                    "customizationSurcharge": 0.00
+                },
+                "applicableTaxes": 250.00
+            },
+            "totalAmount": 2800.00
+        },
+        "paymentOptions": [
+            {
+                "option": "Full Payment",
+                "price": 2800.00,
+                "discount": "3%"
+            }
+        ],
+        "issuingAgent": {
+            "agentId": "A-020",
+            "agentName": "Bwalya Chilufya"
+        },
+        "quotationDate": "2025-04-15",
+        "expiryDate": "2025-05-14",
+        "status": "pending"
+    },
+    {
+        "quotationId": "Q-007",
+        "customerId": "u-008",
+        "customerName": "Katongo Chibesa",
+        "customerEmail": "katongo.chibesa@example.com",
+        "vehicleId": "v-007",
+        "vehicleDetails": {
+            "make": "Toyota",
+            "model": "Hilux",
+            "year": 2023,
+            "plateNumber": "KCB 222 ZM",
+            "vin": "6HN78901234567891",
+            "bodyType": "Pickup"
+        },
+        "policyDetails": {
+            "coverageType": "Comprehensive",
+            "startDate": "2025-05-15",
+            "endDate": "2026-05-14",
+            "durationMonths": 12
+        },
+        "quotedPrice": {
+            "currency": "ZMW",
+            "amount": 11000.00,
+            "breakdown": {
+                "basePremium": 9500.00,
+                "discounts": {
+                    "noClaimBonus": 800.00,
+                    "multiVehicleDiscount": 0.00
+                },
+                "surcharges": {
+                    "vehicleAgeSurcharge": 0.00,
+                    "engineSizeSurcharge": 400.00,
+                    "customizationSurcharge": 0.00
+                },
+                "applicableTaxes": 1900.00
+            },
+            "totalAmount": 11000.00
+        },
+        "paymentOptions": [
+            {
+                "option": "Full Payment",
+                "price": 11000.00,
+                "discount": "6%"
+            },
+            {
+                "option": "Quarterly Payments",
+                "price": 2900.00,
+                "installments": 4
+            }
+        ],
+        "issuingAgent": {
+            "agentId": "A-010",
+            "agentName": "Chanda Musonda"
+        },
+        "quotationDate": "2025-05-01",
+        "expiryDate": "2025-05-30",
+        "status": "pending"
+    },
+    {
+        "quotationId": "Q-008",
+        "customerId": "u-009",
+        "customerName": "Sitali Mwanamfumu",
+        "customerEmail": "sitali.mwanamfumu@example.com",
+        "vehicleId": "v-008",
+        "vehicleDetails": {
+            "make": "Suzuki",
+            "model": "Alto",
+            "year": 2017,
+            "plateNumber": "SMN 333 ZM",
+            "vin": "1ZS12345678901234",
+            "bodyType": "Hatchback"
+        },
+        "policyDetails": {
+            "coverageType": "Third Party",
+            "startDate": "2025-06-01",
+            "endDate": "2026-05-31",
+            "durationMonths": 12
+        },
+        "quotedPrice": {
+            "currency": "ZMW",
+            "amount": 2500.00,
+            "breakdown": {
+                "basePremium": 2100.00,
+                "discounts": {
+                    "noClaimBonus": 0.00,
+                    "multiVehicleDiscount": 0.00
+                },
+                "surcharges": {
+                    "vehicleAgeSurcharge": 50.00,
+                    "engineSizeSurcharge": 20.00,
+                    "customizationSurcharge": 0.00
+                },
+                "applicableTaxes": 330.00
+            },
+            "totalAmount": 2500.00
+        },
+        "paymentOptions": [
+            {
+                "option": "Full Payment",
+                "price": 2500.00,
+                "discount": "2%"
+            }
+        ],
+        "issuingAgent": {
+            "agentId": "A-015",
+            "agentName": "Mwape Banda"
+        },
+        "quotationDate": "2025-05-20",
+        "expiryDate": "2025-06-19",
+        "status": "pending"
+    },
+    {
+        "quotationId": "Q-009",
+        "customerId": "u-010",
+        "customerName": "Chikondi Lungu",
+        "customerEmail": "chikondi.lungu@example.com",
+        "vehicleId": "v-009",
+        "vehicleDetails": {
+            "make": "Kia",
+            "model": "Sportage",
+            "year": 2019,
+            "plateNumber": "CLK 444 ZM",
+            "vin": "4KL98765432109876",
+            "bodyType": "SUV"
+        },
+        "policyDetails": {
+            "coverageType": "Comprehensive",
+            "startDate": "2025-06-10",
+            "endDate": "2026-06-09",
+            "durationMonths": 12
+        },
+        "quotedPrice": {
+            "currency": "ZMW",
+            "amount": 8800.00,
+            "breakdown": {
+                "basePremium": 7500.00,
+                "discounts": {
+                    "noClaimBonus": 700.00,
+                    "multiVehicleDiscount": 0.00
+                },
+                "surcharges": {
+                    "vehicleAgeSurcharge": 150.00,
+                    "engineSizeSurcharge": 200.00,
+                    "customizationSurcharge": 0.00
+                },
+                "applicableTaxes": 1650.00
+            },
+            "totalAmount": 8800.00
+        },
+        "paymentOptions": [
+            {
+                "option": "Full Payment",
+                "price": 8800.00,
+                "discount": "5%"
+            },
+            {
+                "option": "Quarterly Payments",
+                "price": 2290.00,
+                "installments": 4
+            }
+        ],
+        "issuingAgent": {
+            "agentId": "A-012",
+            "agentName": "Twalumba Phiri"
+        },
+        "quotationDate": "2025-05-28",
+        "expiryDate": "2025-06-27",
+        "status": "pending"
+    },
+    {
+        "quotationId": "Q-010",
+        "customerId": "u-011",
+        "customerName": "Sichula Phiri",
+        "customerEmail": "sichula.phiri@example.com",
+        "vehicleId": "v-010",
+        "vehicleDetails": {
+            "make": "Hyundai",
+            "model": "Tucson",
+            "year": 2021,
+            "plateNumber": "SPH 555 ZM",
+            "vin": "5HT78901234567890",
+            "bodyType": "SUV"
+        },
+        "policyDetails": {
+            "coverageType": "Comprehensive",
+            "startDate": "2025-07-01",
+            "endDate": "2026-06-30",
+            "durationMonths": 12
+        },
+        "quotedPrice": {
+            "currency": "ZMW",
+            "amount": 9200.00,
+            "breakdown": {
+                "basePremium": 7800.00,
+                "discounts": {
+                    "noClaimBonus": 600.00,
+                    "multiVehicleDiscount": 0.00
+                },
+                "surcharges": {
+                    "vehicleAgeSurcharge": 50.00,
+                    "engineSizeSurcharge": 150.00,
+                    "customizationSurcharge": 0.00
+                },
+                "applicableTaxes": 1800.00
+            },
+            "totalAmount": 9200.00
+        },
+        "paymentOptions": [
+            {
+                "option": "Full Payment",
+                "price": 9200.00,
+                "discount": "5%"
+            },
+            {
+                "option": "Quarterly Payments",
+                "price": 2400.00,
+                "installments": 4
+            }
+        ],
+        "issuingAgent": {
+            "agentId": "A-020",
+            "agentName": "Bwalya Chilufya"
+        },
+        "quotationDate": "2025-06-15",
+        "expiryDate": "2025-07-14",
+        "status": "pending"
+    },
+    {
+        "quotationId": "Q-011",
+        "customerId": "u-012",
+        "customerName": "Mwiza Nyirenda",
+        "customerEmail": "mwiza.nyirenda@example.com",
+        "vehicleId": "v-011",
+        "vehicleDetails": {
+            "make": "Mazda",
+            "model": "Demio",
+            "year": 2014,
+            "plateNumber": "MNY 666 ZM",
+            "vin": "3MZ45678912345678",
+            "bodyType": "Hatchback"
+        },
+        "policyDetails": {
+            "coverageType": "Third Party",
+            "startDate": "2025-07-10",
+            "endDate": "2026-07-09",
+            "durationMonths": 12
+        },
+        "quotedPrice": {
+            "currency": "ZMW",
+            "amount": 3100.00,
+            "breakdown": {
+                "basePremium": 2600.00,
+                "discounts": {
+                    "noClaimBonus": 0.00,
+                    "multiVehicleDiscount": 0.00
+                },
+                "surcharges": {
+                    "vehicleAgeSurcharge": 100.00,
+                    "engineSizeSurcharge": 50.00,
+                    "customizationSurcharge": 0.00
+                },
+                "applicableTaxes": 350.00
+            },
+            "totalAmount": 3100.00
+        },
+        "paymentOptions": [
+            {
+                "option": "Full Payment",
+                "price": 3100.00,
+                "discount": "3%"
+            }
+        ],
+        "issuingAgent": {
+            "agentId": "A-010",
+            "agentName": "Chanda Musonda"
+        },
+        "quotationDate": "2025-06-25",
+        "expiryDate": "2025-07-24",
+        "status": "pending"
+    },
+    {
+        "quotationId": "Q-012",
+        "customerId": "u-013",
+        "customerName": "Lungowe Banda",
+        "customerEmail": "lungowe.banda@example.com",
+        "vehicleId": "v-012",
+        "vehicleDetails": {
+            "make": "Toyota",
+            "model": "Prado",
+            "year": 2020,
+            "plateNumber": "LBD 777 ZM",
+            "vin": "7TN78901234567891",
+            "bodyType": "SUV"
+        },
+        "policyDetails": {
+            "coverageType": "Comprehensive",
+            "startDate": "2025-07-20",
+            "endDate": "2026-07-19",
+            "durationMonths": 12
+        },
+        "quotedPrice": {
+            "currency": "ZMW",
+            "amount": 10500.00,
+            "breakdown": {
+                "basePremium": 9000.00,
+                "discounts": {
+                    "noClaimBonus": 800.00,
+                    "multiVehicleDiscount": 0.00
+                },
+                "surcharges": {
+                    "vehicleAgeSurcharge": 100.00,
+                    "engineSizeSurcharge": 300.00,
+                    "customizationSurcharge": 0.00
+                },
+                "applicableTaxes": 1900.00
+            },
+            "totalAmount": 10500.00
+        },
+        "paymentOptions": [
+            {
+                "option": "Full Payment",
+                "price": 10500.00,
+                "discount": "6%"
+            },
+            {
+                "option": "Quarterly Payments",
+                "price": 2750.00,
+                "installments": 4
+            }
+        ],
+        "issuingAgent": {
+            "agentId": "A-012",
+            "agentName": "Twalumba Phiri"
+        },
+        "quotationDate": "2025-07-05",
+        "expiryDate": "2025-08-04",
+        "status": "pending"
+    },
+    {
+        "quotationId": "Q-013",
+        "customerId": "u-014",
+        "customerName": "Sampa Mutale",
+        "customerEmail": "sampa.mutale@example.com",
+        "vehicleId": "v-013",
+        "vehicleDetails": {
+            "make": "Honda",
+            "model": "Civic",
+            "year": 2016,
+            "plateNumber": "SMT 888 ZM",
+            "vin": "4HN98765432109876",
+            "bodyType": "Sedan"
+        },
+        "policyDetails": {
+            "coverageType": "Comprehensive",
+            "startDate": "2025-08-01",
+            "endDate": "2026-07-31",
+            "durationMonths": 12
+        },
+        "quotedPrice": {
+            "currency": "ZMW",
+            "amount": 7800.00,
+            "breakdown": {
+                "basePremium": 6500.00,
+                "discounts": {
+                    "noClaimBonus": 500.00,
+                    "multiVehicleDiscount": 0.00
+                },
+                "surcharges": {
+                    "vehicleAgeSurcharge": 100.00,
+                    "engineSizeSurcharge": 100.00,
+                    "customizationSurcharge": 0.00
+                },
+                "applicableTaxes": 1600.00
+            },
+            "totalAmount": 7800.00
+        },
+        "paymentOptions": [
+            {
+                "option": "Full Payment",
+                "price": 7800.00,
+                "discount": "5%"
+            },
+            {
+                "option": "Quarterly Payments",
+                "price": 2050.00,
+                "installments": 4
+            }
+        ],
+        "issuingAgent": {
+            "agentId": "A-015",
+            "agentName": "Mwape Banda"
+        },
+        "quotationDate": "2025-07-15",
+        "expiryDate": "2025-08-14",
+        "status": "pending"
+    },
+    {
+        "quotationId": "Q-014",
+        "customerId": "u-015",
+        "customerName": "Chipo Banda",
+        "customerEmail": "chipo.banda@example.com",
+        "vehicleId": "v-014",
+        "vehicleDetails": {
+            "make": "Ford",
+            "model": "Everest",
+            "year": 2022,
+            "plateNumber": "CBD 999 ZM",
+            "vin": "1FD78901234567890",
+            "bodyType": "SUV"
+        },
+        "policyDetails": {
+            "coverageType": "Comprehensive",
+            "startDate": "2025-08-10",
+            "endDate": "2026-08-09",
+            "durationMonths": 12
+        },
+        "quotedPrice": {
+            "currency": "ZMW",
+            "amount": 11500.00,
+            "breakdown": {
+                "basePremium": 10000.00,
+                "discounts": {
+                    "noClaimBonus": 900.00,
+                    "multiVehicleDiscount": 0.00
+                },
+                "surcharges": {
+                    "vehicleAgeSurcharge": 0.00,
+                    "engineSizeSurcharge": 400.00,
+                    "customizationSurcharge": 0.00
+                },
+                "applicableTaxes": 2000.00
+            },
+            "totalAmount": 11500.00
+        },
+        "paymentOptions": [
+            {
+                "option": "Full Payment",
+                "price": 11500.00,
+                "discount": "6%"
+            },
+            {
+                "option": "Quarterly Payments",
+                "price": 3000.00,
+                "installments": 4
+            }
+        ],
+        "issuingAgent": {
+            "agentId": "A-020",
+            "agentName": "Bwalya Chilufya"
+        },
+        "quotationDate": "2025-07-25",
+        "expiryDate": "2025-08-24",
+        "status": "pending"
+    },
+    {
+        "quotationId": "Q-015",
+        "customerId": "u-016",
+        "customerName": "Mulenga Katongo",
+        "customerEmail": "mulenga.katongo@example.com",
+        "vehicleId": "v-015",
+        "vehicleDetails": {
+            "make": "Mitsubishi",
+            "model": "Pajero",
+            "year": 2015,
+            "plateNumber": "MKO 123 ZM",
+            "vin": "8MT12345678901234",
+            "bodyType": "SUV"
+        },
+        "policyDetails": {
+            "coverageType": "Comprehensive",
+            "startDate": "2025-09-01",
+            "endDate": "2026-08-31",
+            "durationMonths": 12
+        },
+        "quotedPrice": {
+            "currency": "ZMW",
+            "amount": 8900.00,
+            "breakdown": {
+                "basePremium": 7500.00,
+                "discounts": {
+                    "noClaimBonus": 600.00,
+                    "multiVehicleDiscount": 0.00
+                },
+                "surcharges": {
+                    "vehicleAgeSurcharge": 150.00,
+                    "engineSizeSurcharge": 250.00,
+                    "customizationSurcharge": 0.00
+                },
+                "applicableTaxes": 1600.00
+            },
+            "totalAmount": 8900.00
+        },
+        "paymentOptions": [
+            {
+                "option": "Full Payment",
+                "price": 8900.00,
+                "discount": "5%"
+            },
+            {
+                "option": "Quarterly Payments",
+                "price": 2300.00,
+                "installments": 4
+            }
+        ],
+        "issuingAgent": {
+            "agentId": "A-010",
+            "agentName": "Chanda Musonda"
+        },
+        "quotationDate": "2025-08-15",
+        "expiryDate": "2025-09-14",
+        "status": "pending"
+    },
+    {
+        "quotationId": "Q-016",
+        "customerId": "u-017",
+        "customerName": "Luwendo Siwale",
+        "customerEmail": "luwendo.siwale@example.com",
+        "vehicleId": "v-016",
+        "vehicleDetails": {
+            "make": "Subaru",
+            "model": "Forester",
+            "year": 2019,
+            "plateNumber": "LWS 456 ZM",
+            "vin": "2SR78901234567890",
+            "bodyType": "SUV"
+        },
+        "policyDetails": {
+            "coverageType": "Comprehensive",
+            "startDate": "2025-09-10",
+            "endDate": "2026-09-09",
+            "durationMonths": 12
+        },
+        "quotedPrice": {
+            "currency": "ZMW",
+            "amount": 9500.00,
+            "breakdown": {
+                "basePremium": 8000.00,
+                "discounts": {
+                    "noClaimBonus": 700.00,
+                    "multiVehicleDiscount": 0.00
+                },
+                "surcharges": {
+                    "vehicleAgeSurcharge": 100.00,
+                    "engineSizeSurcharge": 200.00,
+                    "customizationSurcharge": 0.00
+                },
+                "applicableTaxes": 1900.00
+            },
+            "totalAmount": 9500.00
+        },
+        "paymentOptions": [
+            {
+                "option": "Full Payment",
+                "price": 9500.00,
+                "discount": "5%"
+            },
+            {
+                "option": "Quarterly Payments",
+                "price": 2470.00,
+                "installments": 4
+            }
+        ],
+        "issuingAgent": {
+            "agentId": "A-012",
+            "agentName": "Twalumba Phiri"
+        },
+        "quotationDate": "2025-08-25",
+        "expiryDate": "2025-09-24",
+        "status": "pending"
+    },
+    {
+        "quotationId": "Q-017",
+        "customerId": "u-018",
+        "customerName": "Chilombo Mwenda",
+        "customerEmail": "chilombo.mwenda@example.com",
+        "vehicleId": "v-017",
+        "vehicleDetails": {
+            "make": "Toyota",
+            "model": "Corolla",
+            "year": 2018,
+            "plateNumber": "CMW 789 ZM",
+            "vin": "1TC12345678901234",
+            "bodyType": "Sedan"
+        },
+        "policyDetails": {
+            "coverageType": "Comprehensive",
+            "startDate": "2025-10-01",
+            "endDate": "2026-09-30",
+            "durationMonths": 12
+        },
+        "quotedPrice": {
+            "currency": "ZMW",
+            "amount": 7600.00,
+            "breakdown": {
+                "basePremium": 6400.00,
+                "discounts": {
+                    "noClaimBonus": 500.00,
+                    "multiVehicleDiscount": 0.00
+                },
+                "surcharges": {
+                    "vehicleAgeSurcharge": 100.00,
+                    "engineSizeSurcharge": 100.00,
+                    "customizationSurcharge": 0.00
+                },
+                "applicableTaxes": 1500.00
+            },
+            "totalAmount": 7600.00
+        },
+        "paymentOptions": [
+            {
+                "option": "Full Payment",
+                "price": 7600.00,
+                "discount": "5%"
+            },
+            {
+                "option": "Quarterly Payments",
+                "price": 1980.00,
+                "installments": 4
+            }
+        ],
+        "issuingAgent": {
+            "agentId": "A-015",
+            "agentName": "Mwape Banda"
+        },
+        "quotationDate": "2025-09-15",
+        "expiryDate": "2025-10-14",
+        "status": "pending"
+    },
+    {
+        "quotationId": "Q-018",
+        "customerId": "u-019",
+        "customerName": "Sitali Mufalali",
+        "customerEmail": "sitali.mufalali@example.com",
+        "vehicleId": "v-018",
+        "vehicleDetails": {
+            "make": "Nissan",
+            "model": "Patrol",
+            "year": 2017,
+            "plateNumber": "SMF 000 ZM",
+            "vin": "5NP45678912345678",
+            "bodyType": "SUV"
+        },
+        "policyDetails": {
+            "coverageType": "Comprehensive",
+            "startDate": "2025-10-20",
+            "endDate": "2026-10-19",
+            "durationMonths": 12
+        },
+        "quotedPrice": {
+            "currency": "ZMW",
+            "amount": 9900.00,
+            "breakdown": {
+                "basePremium": 8500.00,
+                "discounts": {
+                    "noClaimBonus": 700.00,
+                    "multiVehicleDiscount": 0.00
+                },
+                "surcharges": {
+                    "vehicleAgeSurcharge": 100.00,
+                    "engineSizeSurcharge": 300.00,
+                    "customizationSurcharge": 0.00
+                },
+                "applicableTaxes": 1700.00
+            },
+            "totalAmount": 9900.00
+        },
+        "paymentOptions": [
+            {
+                "option": "Full Payment",
+                "price": 9900.00,
+                "discount": "5%"
+            },
+            {
+                "option": "Quarterly Payments",
+                "price": 2580.00,
+                "installments": 4
+            }
+        ],
+        "issuingAgent": {
+            "agentId": "A-020",
+            "agentName": "Bwalya Chilufya"
+        },
+        "quotationDate": "2025-10-05",
+        "expiryDate": "2025-11-04",
+        "status": "pending"
+    },
+    {
+        "quotationId": "Q-019",
+        "customerId": "u-020",
+        "customerName": "Mumbi Kaoma",
+        "customerEmail": "mumbi.kaoma@example.com",
+        "vehicleId": "v-019",
+        "vehicleDetails": {
+            "make": "Toyota",
+            "model": "Yaris",
+            "year": 2013,
+            "plateNumber": "MKM 111 ZM",
+            "vin": "2TY12345678901234",
+            "bodyType": "Hatchback"
+        },
+        "policyDetails": {
+            "coverageType": "Third Party",
+            "startDate": "2025-11-01",
+            "endDate": "2026-10-31",
+            "durationMonths": 12
+        },
+        "quotedPrice": {
+            "currency": "ZMW",
+            "amount": 3200.00,
+            "breakdown": {
+                "basePremium": 2700.00,
+                "discounts": {
+                    "noClaimBonus": 0.00,
+                    "multiVehicleDiscount": 0.00
+                },
+                "surcharges": {
+                    "vehicleAgeSurcharge": 100.00,
+                    "engineSizeSurcharge": 50.00,
+                    "customizationSurcharge": 0.00
+                },
+                "applicableTaxes": 350.00
+            },
+            "totalAmount": 3200.00
+        },
+        "paymentOptions": [
+            {
+                "option": "Full Payment",
+                "price": 3200.00,
+                "discount": "3%"
+            }
+        ],
+        "issuingAgent": {
+            "agentId": "A-010",
+            "agentName": "Chanda Musonda"
+        },
+        "quotationDate": "2025-10-15",
+        "expiryDate": "2025-11-14",
+        "status": "pending"
+    },
+    {
+        "quotationId": "Q-020",
+        "customerId": "u-021",
+        "customerName": "Luwengo Phiri",
+        "customerEmail": "luwengo.phiri@example.com",
+        "vehicleId": "v-020",
+        "vehicleDetails": {
+            "make": "Mercedes-Benz",
+            "model": "GLC",
+            "year": 2021,
+            "plateNumber": "LPG 222 ZM",
+            "vin": "9MB45678912345678",
+            "bodyType": "SUV"
+        },
+        "policyDetails": {
+            "coverageType": "Comprehensive",
+            "startDate": "2025-11-20",
+            "endDate": "2026-11-19",
+            "durationMonths": 12
+        },
+        "quotedPrice": {
+            "currency": "ZMW",
+            "amount": 12000.00,
+            "breakdown": {
+                "basePremium": 10500.00,
+                "discounts": {
+                    "noClaimBonus": 900.00,
+                    "multiVehicleDiscount": 0.00
+                },
+                "surcharges": {
+                    "vehicleAgeSurcharge": 50.00,
+                    "engineSizeSurcharge": 400.00,
+                    "customizationSurcharge": 0.00
+                },
+                "applicableTaxes": 1950.00
+            },
+            "totalAmount": 12000.00
+        },
+        "paymentOptions": [
+            {
+                "option": "Full Payment",
+                "price": 12000.00,
+                "discount": "6%"
+            },
+            {
+                "option": "Quarterly Payments",
+                "price": 3150.00,
+                "installments": 4
+            }
+        ],
+        "issuingAgent": {
+            "agentId": "A-012",
+            "agentName": "Twalumba Phiri"
+        },
+        "quotationDate": "2025-11-05",
+        "expiryDate": "2025-12-04",
+        "status": "pending"
+    }
+]
