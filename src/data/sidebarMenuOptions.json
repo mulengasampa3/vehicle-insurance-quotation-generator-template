@@ -5,17 +5,6 @@
         "path": ""
     },
     {
-        "title": "Inventory",
-        "icon": " bi-box2",
-        "children": [
-            {
-                "title": "Vehicle Inventory",
-                "icon": "bi-car-front-fill",
-                "path": "vehicle-inventory"
-            }
-        ]
-    },
-    {
         "title": "Sales",
         "icon": "bi-cart-check",
         "children": [
