@@ -44,46 +44,90 @@ export default function QuotationsList({ pageName }: PageDetailsProps) {
 
     const totalVehicles = quotationList.length;
     const totalPages = Math.ceil(totalVehicles / itemsPerPage);
-
+    
     const indexOfLastVehicle = currentPage * itemsPerPage;
     const indexOfFirstVehicle = indexOfLastVehicle - itemsPerPage;
     const currentVehicles = quotationList.slice(indexOfFirstVehicle, indexOfLastVehicle);
 
-    const handleNextPage = () => {
-        if (currentPage < totalPages) {
-            setCurrentPage(prevPage => prevPage + 1);
-        }
-    };
-
-    const handlePrevPage = () => {
-        if (currentPage > 1) {
-            setCurrentPage(prevPage => prevPage - 1);
-        }
-    };
+    const handleNextPage = () => currentPage < totalPages && setCurrentPage(prev => prev + 1);
+    const handlePrevPage = () => currentPage > 1 && setCurrentPage(prev => prev - 1);
     // -------------------End Pagination Logic -------------------------
 
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setFormData((prev: any) => ({ ...prev, [name]: value }));
+    };
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        console.log("Final Data:", formData);
+    };
+
+    const [isFilterOffCanvasOpen, setIsFilterOffCanvasOpen] = useState(false);
+    const offCanvasRef = useRef<HTMLDivElement>(null);
+
+    /* ------------- Add Modal Logic Starts Here ------------------*/
+    const [isAddModalOpen, setIsAddModalOpen] = React.useState(false);
+    const steps = [
+        { title: "Vehicle Details" },
+        { title: "Buyer Details" },
+        { title: "Insurance Details" },
+        { title: "Review & Submit" },
+    ];
+
+    const totalSteps = steps.length;
+    const [currentStep, setCurrentStep] = React.useState(0);
+    const [formData, setFormData] = React.useState<any>({});
+
+    const nextStep = () => {
+        if (currentStep < totalSteps - 1) setCurrentStep(prev => prev + 1);
+    };
+
+    const prevStep = () => {
+        if (currentStep > 0) setCurrentStep(prev => prev - 1);
+    };
+
+    const inputClass = "w-full mt-1 rounded-none outline-green-500 outline-1 bg-[#ededed] text-sm dark:text-white border-none dark:bg-[#4d4d4d]";
+    const labelClass = "block text-sm font-medium text-gray-700 dark:text-white";
+    const sectionTitleClass = "w-full text-center sub-section-title text-xl dark:text-white text-[#429775] font-extrabold uppercase";
+    const grid2Cols = "grid grid-cols-1 sm:grid-cols-2 gap-4 border-2 mb-2 p-2 rounded-md";
+    const grid3Cols = "grid grid-cols-1 sm:grid-cols-3 gap-4 border-2 mb-2 p-2 rounded-md";
+    /* ------------- Add Modal Logic Ends Here ------------------*/
+
+    // In your useEffect
     useEffect(() => {
-        // --- Directly use the imported JSON data ---
         try {
-            // Simulate a slight delay to mimic network latency,
-            // so you can actually see the "Loading vehicles..." message.
             setTimeout(() => {
-                setQuotationList(VehicleInventory); // Use the imported data
+                setQuotationList(VehicleInventory);
                 setLoading(false);
-            }, 3500); // 500ms delay
+            }, 3500);
         } catch (e) {
-            setError(e as Error); // Cast error to Error type
-            setLoading(true);
+            setError(e as Error);
+            setLoading(false); // ✅ fix
         }
     }, []);
 
-    if (loading) {
-        return <div className="text-center h-full flex items-center justify-center py-4 dark:text-white">Loading quotations...</div>;
-    }
+     // Close when clicking outside the offcanvas
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (
+                isFilterOffCanvasOpen &&
+                offCanvasRef.current &&
+                !offCanvasRef.current.contains(event.target as Node)
+            ) {
+                setIsFilterOffCanvasOpen(false);
+            }
+        };
 
-    if (error) {
-        return <div className="text-center h-full flex items-center justify-center py-4 dark:text-white">Error: {error.message}</div>;
-    }
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [isFilterOffCanvasOpen]);
+
+
+    if (loading) return <div className="text-center h-full flex items-center justify-center py-4 dark:text-white">Loading quotations...</div>;
+    if (error) return <div className="text-center h-full flex items-center justify-center py-4 dark:text-white">Error: {error.message}</div>;
 
     // Helper function to format quality status
     const formatQualityStatus = (status: string) => {
@@ -112,65 +156,11 @@ export default function QuotationsList({ pageName }: PageDetailsProps) {
         }
     };
 
-    /* ------------- Add Modal Logic Starts Here ------------------*/
-    const [isAddModalOpen, setIsAddModalOpen] = React.useState(false);
-    const steps = [
-        { title: "Vehicle Details" },
-        { title: "Buyer Details" },
-        { title: "Insurance Details" },
-        { title: "Review & Submit" },
-    ];
+    
 
-    const totalSteps = steps.length;
-    const [currentStep, setCurrentStep] = React.useState(0);
-    const [formData, setFormData] = React.useState<any>({});
+    
 
-    const nextStep = () => {
-        if (currentStep < totalSteps - 1) setCurrentStep(prev => prev + 1);
-    };
-
-    const prevStep = () => {
-        if (currentStep > 0) setCurrentStep(prev => prev - 1);
-    };
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-        const { name, value } = e.target;
-        setFormData((prev: any) => ({ ...prev, [name]: value }));
-    };
-
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        console.log("Final Data:", formData);
-    };
-
-    const inputClass = "w-full mt-1 rounded-none outline-green-500 outline-1 bg-[#ededed] text-sm dark:text-white border-none dark:bg-[#4d4d4d]";
-    const labelClass = "block text-sm font-medium text-gray-700 dark:text-white";
-    const sectionTitleClass = "w-full text-center sub-section-title text-xl dark:text-white text-[#429775] font-extrabold uppercase";
-    const grid2Cols = "grid grid-cols-1 sm:grid-cols-2 gap-4 border-2 mb-2 p-2 rounded-md";
-    const grid3Cols = "grid grid-cols-1 sm:grid-cols-3 gap-4 border-2 mb-2 p-2 rounded-md";
-    /* ------------- Add Modal Logic Ends Here ------------------*/
-
-    const [isFilterOffCanvasOpen, setIsFilterOffCanvasOpen] = useState(false);
-    const offCanvasRef = useRef<HTMLDivElement>(null);
-
-    // Close when clicking outside the offcanvas
-    useEffect(() => {
-        const handleClickOutside = (event: MouseEvent) => {
-            if (
-                isFilterOffCanvasOpen &&
-                offCanvasRef.current &&
-                !offCanvasRef.current.contains(event.target as Node)
-            ) {
-                setIsFilterOffCanvasOpen(false);
-            }
-        };
-
-        document.addEventListener("mousedown", handleClickOutside);
-        return () => {
-            document.removeEventListener("mousedown", handleClickOutside);
-        };
-    }, [isFilterOffCanvasOpen]);
-
+   
     return (
         <div className="h-full">
             <div className="w-full h-[60px] flex items-center sm:px-4 px-4">
