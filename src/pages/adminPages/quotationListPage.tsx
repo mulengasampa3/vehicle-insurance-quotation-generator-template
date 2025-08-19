@@ -156,11 +156,6 @@ export default function QuotationsList({ pageName }: PageDetailsProps) {
         }
     };
 
-    
-
-    
-
-   
     return (
         <div className="h-full">
             <div className="w-full h-[60px] flex items-center sm:px-4 px-4">
@@ -335,7 +330,7 @@ export default function QuotationsList({ pageName }: PageDetailsProps) {
                     animated="animate-bounceInDown"
                     size="fixed"
                 >
-                    // Inside your Modal component's content
+                    {/* Modal content */}
                     <form className="space-y-4 px-4 py-2 h-full w-full flex flex-col items-center" onSubmit={handleSubmit}>
                         <span className="step-of-total w-full text-62 dark:text-[#cfcfcf] text-center text-[14px] leading-3">Step {currentStep + 1} of {totalSteps}</span>
                         <div className="w-3/4 bg-gray-200 rounded-full min-h-1 flex dark:bg-gray-700 mb-1">
